@@ -46,3 +46,7 @@ footer{background:#ffe6f0;text-align:center;padding:1.5rem;color:#555;font-size:
 .products{grid-template-columns:1fr;}
 .product{max-width:90%;}
 }
+.view-btn {
+    margin-top: 8px;
+    background: #555; 
+  }  
