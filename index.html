@@ -1,0 +1,525 @@
+<html><head><meta charset="UTF-8"></head><body><!DOCTYPE html>
+
+<html lang="en">
+
+<head><meta charset="UTF-8"></head><body><!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+  <meta charset="UTF-8">  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+  <title>Cozy Closet Store</title>  
+
+  <meta name="description" content="Shop sustainable, chic, and feminine preloved fashion. Thoughtfully curated used clothing that blends timeless elegance with conscious living.">  
+
+  <meta name="keywords" content="sustainable fashion, preloved clothing, cozy closet, vintage fashion, chic clothing, used clothes, feminine style">  
+
+  <meta property="og:title" content="Cozy Closet Store">  
+
+  <meta property="og:description" content="Sustainable, chic, and feminine preloved fashion — thoughtfully curated clothing for conscious living."> 
+
+  <meta property="og:type" content="website">  
+
+  <meta property="og:url" content="https://cozycloset.netlify.app">  
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+  <style>  
+
+    *{margin:0;padding:0;box-sizing:border-box;}  
+
+    body{  
+
+      font-family:'Lora', serif;  
+
+      background:#fff;color:#333;line-height:1.6;overflow-x:hidden;scroll-behavior:smooth;transition:all 0.3s;  
+
+    }  
+
+    a{text-decoration:none;color:inherit;}  
+
+    button{cursor:pointer;font-family:inherit;border:none;transition:0.3s;}  
+
+    /* --- HEADER --- */  
+
+    header{  
+
+      position:sticky;top:0;background:#ffe6f0;padding:0.6rem 5%;  
+
+      display:flex;justify-content:center;align-items:center;z-index:999;  
+
+      border-bottom:1px solid rgba(0,0,0,0.05);  
+
+      transition:transform 0.4s ease, opacity 0.4s ease;  
+
+    }  
+
+    header.hide{  
+
+      transform:translateY(-100%);opacity:0;  
+
+    }  
+
+    .logo{  
+
+      font-family:'Lora', serif;font-weight:700;font-size:1.7rem;  
+
+      background:linear-gradient(90deg,#ffb6c1,#ff69b4);  
+
+      -webkit-background-clip:text;color:transparent;  
+
+    }  
+
+    /* --- HERO --- */  
+
+    .hero {  
+
+      display:flex;justify-content:center;align-items:center;  
+
+      padding:6rem 5%;gap:2rem;text-align:center;flex-direction:column;  
+
+      background:url('background.jpg') center center / cover no-repeat;  
+
+      background-color:#000;min-height:80vh;color:#fff;position:relative;overflow:hidden;  
+
+    }  
+
+    .hero::before{  
+
+      content:"";position:absolute;top:0;left:0;width:100%;height:100%;  
+
+      background:rgba(0,0,0,0.35);  
+
+    }  
+
+    .hero-text{  
+
+      position:relative;z-index:2;  
+
+      opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;  
+
+    }  
+
+    .hero.show .hero-text{opacity:1;transform:translateY(0);}  
+
+    .hero-text h1{  
+
+      font-weight:700;font-size:2.5rem;margin-bottom:0.5rem;color:#fff;  
+
+      text-shadow:0 3px 10px rgba(0,0,0,0.4);  
+
+    }  
+
+    .hero-text p{  
+
+      max-width:600px;margin-bottom:1rem;color:#f8f8f8;  
+
+      text-shadow:0 2px 6px rgba(0,0,0,0.3);  
+
+    }  
+
+    .hero-text button{  
+
+      font-weight:600;background:linear-gradient(135deg,#ffb6c1,#ff69b4);  
+
+      padding:0.8rem 1.5rem;border-radius:12px;color:#fff;  
+
+      transition:all 0.3s ease;box-shadow:0 5px 15px rgba(255,105,180,0.4);  
+
+    }  
+
+    .hero-text button:hover{  
+
+      opacity:0.9;transform:translateY(-2px);  
+
+      box-shadow:0 8px 20px rgba(255,105,180,0.6);  
+
+    }  
+
+    /* --- SECTIONS --- */  
+
+    section{padding:3rem 5%;text-align:center;}  
+
+    .section-title h2{font-weight:700;font-size:1.8rem;margin-bottom:2rem;color:#ff69b4;}  
+
+    /* --- PRODUCTS --- */  
+
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;justify-items:center;}  
+
+    .product{  
+
+      background:#fff0f5;padding:1.5rem;border-radius:16px;  
+
+      opacity:0;transform:translateY(30px);  
+
+      transition:transform 0.3s, box-shadow 0.3s, opacity 0.6s;  
+
+      display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;  
+
+      box-shadow:0 4px 12px rgba(255,182,193,0.2);  
+
+      width:100%;max-width:400px;  
+
+    }  
+
+    .product.show{opacity:1;transform:translateY(0);}  
+
+    .product:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(255,182,193,0.4);}  
+
+    /* --- FIX: одинаковый размер фото без обрезки --- */
+.product img {
+  width: 100%;
+  height: 280px; /* одинаковая высота */
+  object-fit: contain; /* сохраняет целое изображение */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  padding: 10px; /* добавляет "воздух" вокруг картинки */
+  transition: all 0.4s;
+}
+
+    .product img:hover{transform:scale(1.05);}  
+
+    .product h3{font-weight:600;color:#ff69b4;margin-bottom:1rem;font-size:1.2rem;}  
+
+    .product button{  
+
+      font-weight:600;background:linear-gradient(135deg,#ffb6c1,#ff69b4);  
+
+      padding:0.8rem 1rem;border-radius:12px;color:#fff;width:100%;  
+
+      box-shadow:0 5px 15px rgba(255,105,180,0.4);  
+
+    }  
+
+    .product button:hover{  
+
+      transform:translateY(-2px);  
+
+      box-shadow:0 8px 20px rgba(255,105,180,0.6);  
+
+    }  
+
+    .badge{  
+
+      position:absolute;top:10px;left:10px;background:#ff69b4;color:#fff;  
+
+      padding:0.2rem 0.5rem;font-size:0.8rem;border-radius:8px;text-transform:uppercase;  
+
+    }  
+
+    /* --- SUBSCRIBE --- */  
+
+    .subscribe{  
+
+      background:#fff0f5;padding:3rem 5%;margin:3rem 0;border-radius:16px;text-align:center;  
+
+      box-shadow:0 4px 12px rgba(255,182,193,0.2);  
+
+    }  
+
+#others h2 { margin-top: -60px;}  
+
+#dresses h2 { margin-top: -10px;}  
+
+    .subscribe h2{font-weight:700;margin-bottom:1rem;color:#ff69b4;}  
+
+    .subscribe .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;justify-items:center;}  
+
+     .subscribe .products .product p { font-size: 13px; margin-bottom: 18px; }  
+
+    /* --- FAQ --- */  
+
+    .faq{background:#fff;padding:3rem 5%;border-top:1px solid rgba(0,0,0,0.05);text-align:center;}  
+
+    .faq h2{font-weight:700;margin-bottom:2rem;color:#ff69b4;font-size:1.8rem;}  
+
+    .faq-item{background:#fff0f5;margin-bottom:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(255,182,193,0.2);overflow:hidden;text-align:left;}  
+
+    .faq-question{padding:1rem 1.5rem;cursor:pointer;font-weight:600;color:#ff69b4;display:flex;justify-content:space-between;align-items:center;}  
+
+    .faq-answer{max-height:0;overflow:hidden;padding:0 1.5rem;transition:max-height 0.4s ease,padding 0.4s ease;color:#555;}  
+
+    .faq-item.active .faq-answer{max-height:200px;padding:1rem 1.5rem 1.5rem;}  
+
+    footer{  
+
+      background:#ffe6f0;text-align:center;padding:1.5rem;color:#555;font-size:0.9rem;  
+
+    }  
+/* --- FIX 2: ровно по центру, без огромных расстояний --- */
+#others .products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 700px; /* ограничиваем общую ширину секции */
+  margin: 0 auto; /* выравнивание по центру */
+  gap: 1.5rem;
+}
+
+#others .product {
+  flex: 1 1 300px; /* карточки адаптируются по ширине */
+  max-width: 320px;
+}
+
+
+
+    @media(max-width:768px){  
+
+      .hero{padding:5rem 2rem;min-height:70vh;}  
+
+      .hero-text h1{font-size:2rem;}  
+
+      .products{grid-template-columns:1fr;}  
+
+      .product{max-width:90%;}  
+
+    }  
+
+  </style>  
+
+</head>  
+
+<body>  
+
+  <header id="header">  
+
+    <div class="logo">Cozy Closet</div>  
+
+  </header>  
+
+  <!-- Hero -->  
+
+  <section class="hero" id="hero">  
+
+    <div class="hero-text">  
+
+      <h1>Welcome to Cozy Closet Store</h1>  
+
+      <p>Shop sustainable, chic, and feminine preloved fashion. Thoughtfully curated used clothing that blends timeless elegance with conscious living.</p>  
+
+      <button onclick="document.querySelector('#dresses').scrollIntoView({behavior:'smooth'})">View Clothing</button>  
+
+    </div>  
+
+  </section>  
+
+  <!-- Dresses Section (was Products) -->  
+
+  <section id="dresses">  
+
+    <h2>Clothing</h2>  
+
+    <div class="products">  
+
+      <div class="product">  
+
+        <div class="badge">New</div>  
+
+        <img src="skirt.png" alt="Skirts">  
+
+        <h3>Skirts</h3>  
+
+        <button onclick="window.open('https://t.me/cxmily','_blank')">Buy via Telegram</button>  
+
+      </div>  
+
+      <div class="product">  
+
+        <div class="badge">Hot</div>  
+
+        <img src="shirt.png" alt="Shirts">  
+
+        <h3>Shirts</h3>  
+
+        <button onclick="window.open('https://t.me/cxmily','_blank')">Buy via Telegram</button>  
+
+      </div>  
+
+      <div class="product">  
+        <div class="badge">New</div>
+        <img src="blouses.png" alt="Blouses">  
+
+        <h3>Blouses</h3>  
+
+        <button onclick="window.open('https://t.me/cxmily','_blank')">Buy via Telegram</button>  
+
+      </div>  
+
+      <div class="product">  
+
+        <div class="badge">Sale</div>  
+
+        <img src="dress.png" alt="Dresses">  
+
+        <h3>Dresses</h3>  
+
+        <button onclick="window.open('https://t.me/cxmily','_blank')">Buy via Telegram</button>  
+
+      </div>  
+
+    </div>  
+
+  </section>  
+
+  <!-- Others Section -->  
+
+  <section id="others">  
+
+    <h2>Others</h2>  
+
+    <div class="products">  
+
+      <div class="product">  
+        <div class="badge">New</div>
+
+        <img src="acces.png" alt="Accessories">  
+
+        <h3>Accessories</h3>  
+
+        <button onclick="window.open('https://t.me/cxmily','_blank')">Buy via Telegram</button>  
+
+      </div> 
+
+       <div class="product">  
+        <div class="badge">Hot</div>
+
+        <img src="perfume.png" alt="Perfumes">  
+
+        <h3>Perfumes</h3>  
+
+        <button onclick="window.open('https://t.me/cxmily','_blank')">Buy via Telegram</button>  
+
+      </div>  
+
+    </div>  
+
+  </section>  
+
+  <!-- Telegram Subscribe -->  
+
+  <section class="subscribe" id="subscribe">  
+
+    <h2>Join Our Telegram Channel</h2>  
+
+    <div class="products">  
+
+      <div class="product">  
+
+        <h3>Telegram Channel</h3>  
+
+        <p>Stay updated on our latest products and deals by joining our Telegram channel.</p>  
+
+        <button onclick="window.open('https://t.me/cozyclosetstore','_blank')">Subscribe</button>  
+
+      </div>  
+
+    </div>  
+
+  </section>  
+
+  <!-- FAQ Section -->  
+
+  <section class="faq" id="faq">  
+
+    <h2>FAQ — Frequently Asked Questions</h2>  
+
+    <div class="faq-item">  
+
+      <div class="faq-question">📦 Shipping</div>  
+
+      <div class="faq-answer">Shipping will be privately arranged after you contact us on Telegram.</div>  
+
+    </div>  
+
+    <div class="faq-item">  
+
+      <div class="faq-question">🔄 Return Policy</div>  
+
+      <div class="faq-answer">Strictly no returns. Please review product details before ordering.</div>  
+
+    </div>  
+
+    <div class="faq-item">  
+
+      <div class="faq-question">💬 Contact for More Info</div>  
+
+      <div class="faq-answer">For any questions, message us directly on Telegram <a href="https://t.me/cxmily" target="_blank" style="color:#ff69b4;font-weight:600;">@cxmily</a>.</div>  
+
+    </div>  
+
+  </section>  
+
+  <footer>  
+
+    © <span id="year"></span> Cozy Closet Store <br>  
+
+    ✉️ <a href="mailto:dfaqxd@gmail.com" style="color:#ff69b4;font-weight:600;">dfaqxd@gmail.com</a>  
+
+  </footer>  
+
+  <script>  
+
+    document.getElementById('year').textContent = new Date().getFullYear();  
+
+    // Плавное появление элементов при прокрутке  
+
+    const observer = new IntersectionObserver((entries)=>{  
+
+      entries.forEach(entry=>{  
+
+        if(entry.isIntersecting){  
+
+          entry.target.classList.add('show');  
+
+          observer.unobserve(entry.target);  
+
+        }  
+
+      });  
+
+    }, {threshold:0.2});  
+
+    document.querySelectorAll('.hero, .product').forEach(el=>observer.observe(el));  
+
+    // FAQ раскрытие  
+
+    document.querySelectorAll('.faq-question').forEach(q=>{  
+
+      q.addEventListener('click',()=>q.parentElement.classList.toggle('active'));  
+
+    });  
+
+    // Скрытие и показ хедера при скролле  
+
+    let lastScrollTop = 0;  
+
+    const header = document.getElementById('header');  
+
+    window.addEventListener('scroll', () => {  
+
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;  
+
+      if (scrollTop > lastScrollTop + 10) {  
+
+        header.classList.add('hide');  
+
+      } else if (scrollTop < lastScrollTop - 10) {  
+
+        header.classList.remove('hide');  
+
+      }  
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;  
+
+    });  
+
+  </script>  
+
+</body>  
+
+</html>
